@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    // Suppress middleware deprecation warning in Next.js 16
+    // The middleware.ts file is still the correct approach for auth
+  },
 };
 
 export default nextConfig;
