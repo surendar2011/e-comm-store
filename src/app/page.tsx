@@ -1,65 +1,112 @@
+import Link from "next/link";
 import Image from "next/image";
+import { auth } from "@/auth";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Purple Gradient Background with Abstract Patterns */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-700 via-purple-600 to-purple-500">
+        {/* Dot Pattern Grid */}
+        <div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.4) 1.5px, transparent 1.5px)`,
+            backgroundSize: '35px 35px',
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        
+        {/* Abstract Shapes - Wavy Lines */}
+        <svg className="absolute top-0 left-0 w-full h-full opacity-25" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,80 Q250,40 500,80 T1000,80 T1500,80" stroke="white" strokeWidth="2.5" fill="none" />
+          <path d="M0,180 Q350,130 700,180 T1400,180" stroke="#87CEEB" strokeWidth="2" fill="none" />
+          <path d="M50,0 Q100,150 50,300 T50,600 T50,900" stroke="white" strokeWidth="2" fill="none" />
+          <path d="M1200,50 Q1300,200 1200,350 T1200,650" stroke="#87CEEB" strokeWidth="2.5" fill="none" />
+        </svg>
+
+        {/* Abstract Shapes - Circles */}
+        <div className="absolute top-16 left-16 w-10 h-10 border-2 border-white rounded-full opacity-35" />
+        <div className="absolute top-12 left-12 w-3 h-3 bg-white rounded-full opacity-40" />
+        <div className="absolute top-36 right-28 w-7 h-7 border-2 border-cyan-300 rounded-full opacity-35" />
+        <div className="absolute bottom-28 left-36 w-12 h-12 border-2 border-white rounded-full opacity-30" />
+        <div className="absolute top-64 right-64 w-8 h-8 border-2 border-cyan-300 rounded-full opacity-35" />
+        <div className="absolute bottom-48 right-32 w-6 h-6 border-2 border-white rounded-full opacity-35" />
+
+        {/* Abstract Shapes - X marks */}
+        <div className="absolute top-56 right-56 opacity-35">
+          <div className="relative w-7 h-7">
+            <div className="absolute top-1/2 left-0 right-0 border-t-2 border-white transform rotate-45 origin-center" />
+            <div className="absolute top-1/2 left-0 right-0 border-t-2 border-white transform -rotate-45 origin-center" />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="absolute bottom-56 right-36 opacity-35">
+          <div className="relative w-9 h-9">
+            <div className="absolute top-1/2 left-0 right-0 border-t-2 border-cyan-300 transform rotate-45 origin-center" />
+            <div className="absolute top-1/2 left-0 right-0 border-t-2 border-cyan-300 transform -rotate-45 origin-center" />
+          </div>
         </div>
-      </main>
+        <div className="absolute top-80 left-80 opacity-30">
+          <div className="relative w-6 h-6">
+            <div className="absolute top-1/2 left-0 right-0 border-t-2 border-white transform rotate-45 origin-center" />
+            <div className="absolute top-1/2 left-0 right-0 border-t-2 border-white transform -rotate-45 origin-center" />
+          </div>
+        </div>
+
+        {/* Zigzag Lines */}
+        <svg className="absolute bottom-20 left-20 opacity-30" width="60" height="40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,20 L15,10 L30,20 L45,10 L60,20" stroke="#87CEEB" strokeWidth="2" fill="none" />
+        </svg>
+        <svg className="absolute top-32 right-20 opacity-30" width="50" height="30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,15 L12,8 L24,15 L36,8 L50,15" stroke="white" strokeWidth="2" fill="none" />
+        </svg>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-screen flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-center lg:text-left z-10">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-purple-900 mb-4 leading-tight">
+                SHOP ONLINE
+              </h1>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-cyan-400 mb-6">
+                SALES LANDING PAGE
+              </h2>
+              <p className="text-lg md:text-xl text-white mb-8 max-w-lg">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              </p>
+              <Link
+                href="/products"
+                className="inline-block bg-cyan-400 text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-purple-600 transition-colors shadow-lg hover:shadow-xl"
+              >
+                SHOP NOW
+              </Link>
+            </div>
+
+            {/* Right Image */}
+            <div className="relative w-full h-[500px] lg:h-[600px] z-10">
+              <Image
+                src="/freepik-assets/Gemini_Generated_Image_srpzx0srpzx0srpz.png"
+                alt="Happy shopper with shopping bags"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer with Freepik Attribution */}
+      <footer className="relative z-10 text-center py-6">
+        <p className="text-white text-sm opacity-80">
+          ❤️
+        </p>
+      </footer>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Navigation from "@/components/Navigation";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${roboto.variable} ${playfairDisplay.variable} antialiased`}
       >
+        <Navigation />
         {children}
       </body>
     </html>

@@ -9,7 +9,7 @@ export default async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Public routes that don't require authentication
-  const publicRoutes = ["/auth/login", "/auth/signup", "/", "/api"];
+  const publicRoutes = ["/auth/login", "/auth/signup", "/", "/api", "/products", "/test-products", "/cart", "/checkout/success", "/checkout/cancel"];
   const isPublicRoute = publicRoutes.some((route) => pathname.startsWith(route));
 
   // Skip auth check for public routes to avoid hanging
