@@ -16,7 +16,7 @@ export default async function Navigation() {
               href="/"
               className="text-xl font-bold text-cyan-400 hover:text-cyan-300"
             >
-              COMPANYLOGO
+              SHOPONLINE
             </Link>
           </div>
 
@@ -74,7 +74,7 @@ export default async function Navigation() {
               <>
                 <Link
                   href="/auth/login"
-                  className="bg-purple-400 text-white px-6 py-2 rounded-full hover:bg-purple-500 font-medium transition-colors"
+                  className="bg-purple-400 text-white px-6 py-2 rounded-md hover:bg-purple-500 font-medium transition-colors"
                 >
                   LOGIN
                 </Link>
