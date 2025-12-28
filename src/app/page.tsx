@@ -70,13 +70,13 @@ export default async function Home() {
             {/* Left Content */}
             <div className="text-center lg:text-left z-10">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-purple-900 mb-4 leading-tight">
-                SHOP ONLINE
+                SHOP-ONLINE
               </h1>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-cyan-400 mb-6">
                 SALES LANDING PAGE
               </h2>
               <p className="text-lg md:text-xl text-white mb-8 max-w-lg">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                The best place to buy and sell digital products. With a wide range of products to choose from, you're sure to find something you like.
               </p>
               <Link
                 href="/products"
