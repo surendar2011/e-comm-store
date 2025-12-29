@@ -16,7 +16,7 @@ export default async function Navigation() {
               href="/"
               className="text-xl font-bold text-cyan-400 hover:text-cyan-300"
             >
-              SHOPONLINE
+              SHOP-ONLINE
             </Link>
           </div>
 
