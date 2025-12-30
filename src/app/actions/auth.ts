@@ -6,13 +6,13 @@ import bcrypt from "bcryptjs";
 import { signIn } from "@/auth";
 
 const signUpSchema = z.object({
-  email: z.string().email("Invalid email address"),
+  email: z.string().trim().pipe(z.email({ message: "Invalid email address" })),
   name: z.string().min(1, "Name is required"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
 const signInSchema = z.object({
-  email: z.string().email("Invalid email address"),
+  email: z.string().trim().pipe(z.email({ message: "Invalid email address" })),
   password: z.string().min(1, "Password is required"),
 });
 
@@ -48,7 +48,7 @@ export async function signUp(formData: FormData) {
     return { success: true, user: { id: user.id, email: user.email } };
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { error: error.errors[0].message };
+      return { error: error.issues[0].message };
     }
     return { error: "Failed to create account" };
   }
@@ -76,7 +76,7 @@ export async function signInAction(formData: FormData) {
     }
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return { error: error.errors[0].message };
+      return { error: error.issues[0].message };
     }
     return { error: "Failed to sign in" };
   }

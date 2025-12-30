@@ -12,8 +12,9 @@ export default function SignupForm() {
   async function handleSubmit(formData: FormData) {
     setIsLoading(true);
     setError(null);
-
-    const result = await signUp(formData);
+    
+    // Extracts the user data from the form data
+    const result = await signUp(formData); // Calls the signUp function in the auth.ts file
 
     if (result.error) {
       setError(result.error);
